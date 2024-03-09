@@ -82,10 +82,10 @@ class UserController extends Controller
     }
 
 
-    public function delete(Request $request)
+    public function delete(Request $request ,$id)
     {
         try {
-           $user=User::find($request->id);
+           $user=User::find($id);
            if (!$user){
                return $this->ReturnError('E001',__('messages.not found this user'));
            }
@@ -112,6 +112,8 @@ class UserController extends Controller
             ///validate///
             $rules = [
                 'email' => 'required|exists:users,email',
+                'password'=>'required'
+
             ];
             $validator = Validator::make($request->all(), $rules);
             if ($validator->fails()) {

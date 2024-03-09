@@ -9,6 +9,7 @@ return [
     'something'=>'SomeThing Wrong Please Try Again Later',
     'logout'=>'Successfully LogOut',
     'not found this user'=>'Not Found This User',
+    'not found this category'=>'Not Found This category',
     'update'=>'Updated Done',
     'delete'=>'Delete Done',
     'change password'=>'Changed Password',

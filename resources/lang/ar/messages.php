@@ -9,6 +9,7 @@ return [
     'something'=>'حدث خطأ من فضلك حاول مره اخرى لاحقا',
     'logout'=>'تم تسجيل الخروج',
     'not found this user'=>'لا يوجد هذا المستخدم',
+    'not found this category'=>'لا يوجد هذا المحتوي',
     'update'=>'تم التحديث بنجاح',
     'delete'=>'تم الحذف بنجاح',
     'change password'=>'تم تغير كلمه المرور',
