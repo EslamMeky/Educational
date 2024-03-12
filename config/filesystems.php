@@ -59,6 +59,30 @@ return [
             'url' => env('APP_URL').'/public',
             'visibility' => 'public',
         ],
+        'subCategories' => [
+            'driver' => 'local',
+            'root' => base_path('/public/assets/images/subCategories/'),
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+        ],
+        'courses' => [
+            'driver' => 'local',
+            'root' => base_path('/public/assets/images/courses/'),
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+        ],
+        'video' => [
+            'driver' => 'local',
+            'root' => base_path('/public/assets/images/video/'),
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+        ],
+        'ads' => [
+            'driver' => 'local',
+            'root' => base_path('/public/assets/images/ads/'),
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',

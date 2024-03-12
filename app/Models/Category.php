@@ -25,7 +25,7 @@ class Category extends Model
     public function scopeSelection($q){
         return $q->select(
             'id',
-            'name_'.app()->getLocale().' as name',
+            'name_'.app() -> getLocale() .' as name',
             'description_'.app()->getLocale().' as description',
             'photo',
             'created_at',
@@ -35,5 +35,9 @@ class Category extends Model
     public function getPhotoAttribute($val)
     {
         return ($val!=null)? asset('assets/'.$val):"";
+    }
+
+    public function subCategory(){
+        return $this->hasMany(subCategory::class,'category_id','id');
     }
 }

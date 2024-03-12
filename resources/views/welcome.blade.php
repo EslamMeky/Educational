@@ -127,6 +127,14 @@
                     </div>
                 </div>
             </div>
+
+                <form  action="{{route('test')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="video[]" multiple="multiple ">
+                    <br>
+                    <br>
+                    <input type="submit">
+                </form>
         </div>
     </body>
 </html>

@@ -103,7 +103,7 @@ use GeneralTraits;
                 'name_en'=>'required',
                 'description_ar' => 'required',
                 'description_en' => 'required',
-                'photo'=>'required|mimes:jpg,png,jpeg'
+//                'photo'=>'required|mimes:jpg,png,jpeg'
 
 
             ];
@@ -117,15 +117,21 @@ use GeneralTraits;
             if (!$category){
                 return $this->ReturnError('E00',__('messages.not found this category'));
             }
-            $path_file=uploadImage('categories',$request->photo);
 
             Category::where('id',$id)->update([
                 'name_ar'=>$request->name_ar,
                 'name_en'=>$request->name_en,
                 'description_ar'=>$request->description_ar,
                 'description_en'=>$request->description_en,
-                'photo'=>$path_file,
             ]);
+            if ($request->hasFile('photo'))
+            {
+                $path_file=uploadImage('categories',$request->photo);
+                Category::where('id',$id)->update([
+                    'photo'=>$path_file,
+
+                ]);
+            }
             return $this->ReturnSuccess('S000', __('messages.update'));
 
 

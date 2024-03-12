@@ -19,7 +19,7 @@ Route::group(['middleware'=>['auth.guard:user-api','checkPassword','checkLanguag
 
 /////////////////// user //////////////
 Route::group(['middleware'=>['api','checkLanguage'],'namespace'=>'App\Http\Controllers\API\User'],function (){
-    Route::get('showUser','UserController@show');
+    Route::post('showUser','UserController@show');
     Route::get('editUser/{id}','UserController@edit');
     Route::post('updateUser/{id}','UserController@update');
     Route::post('deleteUser/{id}','UserController@delete');
@@ -52,13 +52,53 @@ Route::group(['middleware'=>['guest:admin','checkLanguage'],'namespace'=>'App\Ht
         Route::group(['prefix'=>'category'],function (){
             Route::post('add', 'CategoryController@add');
             Route::post('delete/{id}', 'CategoryController@delete');
-            Route::get('show', 'CategoryController@show');
+            Route::post('show', 'CategoryController@show');
 
             Route::get('edit/{id}', 'CategoryController@edit');
             Route::post('update/{id}', 'CategoryController@update');
 
 
         });
+
+        Route::group(['prefix'=>'subCategory'],function (){
+            Route::post('add', 'SubCategoryController@add');
+            Route::post('delete/{id}', 'SubCategoryController@delete');
+            Route::post('show', 'SubCategoryController@show');
+
+            Route::get('edit/{id}', 'SubCategoryController@edit');
+            Route::post('update/{id}', 'SubCategoryController@update');
+
+
+        });
+
+
+
+
+        Route::group(['prefix'=>'course'],function (){
+            Route::post('add', 'CourseController@add');
+//            Route::post('test', 'CourseController@test')->name('test');
+            Route::post('delete/{id}', 'CourseController@delete');
+            Route::post('show', 'CourseController@show');
+//
+            Route::get('edit/{id}', 'CourseController@edit');
+            Route::post('update/{id}', 'CourseController@update');
+
+
+        });
+
+
+        Route::group(['prefix'=>'ads'],function (){
+            Route::post('add', 'AdsController@add');
+            Route::post('delete/{id}', 'AdsController@delete');
+            Route::get('show', 'AdsController@show');
+
+            Route::get('edit/{id}', 'AdsController@edit');
+            Route::post('update/{id}', 'AdsController@update');
+
+
+        });
+
+
 
 
     });
