@@ -53,7 +53,7 @@ class AdsController extends Controller
     {
         try {
 
-            $ads=Ads::selection()->paginate(PAGINATE);
+            $ads=Ads::with(['category'])->selection()->paginate(PAGINATE);
             return $this->ReturnData('Ads',$ads,'S00');
         }
         catch (\Exception $ex){
